@@ -15,7 +15,6 @@ declare module "express-session" {
   }
 }
 
-
 export const app = express();
 
 app.use(express.json());
@@ -34,8 +33,12 @@ app.use(
   })
 );
 
+
 app.use("/views", authRouter);
-app.use("/views", homeRouter)
+app.use("/views", homeRouter); 
+
+
+
 
 const options: mongoose.ConnectOptions = {
   dbName: CONFIG.db_name as string,
