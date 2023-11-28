@@ -4,7 +4,7 @@
   "description": "Typescript and Node",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon --quiet src/app.ts"
   },
   "author": "",
   "license": "ISC",

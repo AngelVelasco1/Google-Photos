@@ -1,0 +1,24 @@
+ <section class="w-screen m-0 p-0 ">
+  <div class="grid grid-cols-3   m-0 overflow-hidden my-12">
+    <% albums.forEach(album=> { %>
+        <div class="m-auto py-10">
+          <div
+            class="h-96 relative flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-90 md:-ml-16 md:hover:-translate-x-12 md:hover:-translate-y-8">
+            <img class="object-fill object-center w-full rounded-t-xl lg:h-48 md:h-36"
+              src="https://picsum.photos/id/475/500/300" alt="blog">
+            <div class="px-6 py-8">
+              <h4 class="mb-5 mt-12 text-2xl font-bold text-indigo-600">
+                <span class="">
+                  <%= album.name %>
+                </span>
+              </h4>
+              <a class="bg-zinc-700 py-2 px-4 text-white font-semibold  rounded-md" href="/views/albums/<%= album._id %>">Show All</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+
+
+  </div>
+</section>

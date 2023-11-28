@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+  <link rel="stylesheet" href="../../app.css">
+
+</head>
+
+<body>
+  <%- include('../layout/navbar.ejs') %>
+      <form action="/views/createAlbum" method="post">
+        <div class="space-y-12 max-w-screen-sm m-auto">
+          <div class="col-span-full">
+      
+            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+              <div class="flex flex-2 flex-col justify-center align-middle items-center ">
+                <input class="rounded-md" type="text" name="name" placeholder="Album Name">
+                <div class="mt-5">
+                  <label class="font-semibold"  for="">Private</label>
+                  <input  type="checkbox" name="isprivate" checked >
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <button
+            class="rounded-md bg-gray-600 px-5 py-2  w-full text-md font-bold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+            type="submit">Create Album</button>
+        </div>
+      </form>
+    <%- include('../layout/albums.ejs') %>
+</body>
+
+</html>

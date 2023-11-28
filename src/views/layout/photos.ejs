@@ -1,0 +1,79 @@
+<div id="addAlbum" class="w-1/4 m-auto hidden">
+  <label for="HeadlineAct" class="block text-sm mt-10 font-medium text-gray-900">
+    Albums
+  </label>
+  <form action="/views/addToAlbum" method="post">
+    <input type="hidden" name="photosId" id="photosId">
+    <select name="albumId" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+      <% albums.forEach(album=> { %>
+        <option value="<%= album._id %>">
+          <%= album.name %>
+        </option>
+        <% }) %>
+    </select>
+    <button
+      class="flex mt-4 m-auto rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500">Add
+      to album</button>
+  </form>
+</div>
+
+
+
+
+<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+    <% photos.forEach(photo=> { %>
+      <a class="z-0" href="/views/preview/<%= photo._id %>?origin=<%= origin %>">
+        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 ">
+
+          <img class="h-full w-full object-cover object-center cursor-pointer hover:opacity-75"
+            src="http://localhost:3000/images/<%= photo.fileName %>" />
+          <h3 class="mx-3 my-2 z-1 title text-md text-white font-bold ">
+            <input type="checkbox" class="selectPhoto rounded-lg p-3" value="<%= photo._id %>">
+          </h3>
+        </div>
+      </a>
+      <div class="favoritesContainer">
+        <% if(photo.userID===user._id) { if(photo.favorite) { %>
+          <form action="removeFavorite" method="post">
+            <input type="hidden" name="photoId" value="<%= photo._id %>">
+            <input type="hidden" name="origin" value="<%= origin %>">
+            <button>Remove favorite</button>
+
+          </form>
+          <% } else { %>
+            <form action="addFavorite" method="post">
+              <input type="hidden" name="photoId" value="<%= photo._id %>">
+              <input type="hidden" name="origin" value="<%= origin %>">
+              <button>Add favorite</button>
+            </form>
+            <% } %>
+              <% } %>
+      </div>
+      <% }) %>
+  </div>
+</div>
+
+
+<script>
+
+  const checkboxes = document.querySelectorAll(".selectPhoto");
+  const addAlbumContainer = document.querySelector("#addAlbum")
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("click", () => {
+      if (checkbox.checked) {
+        addSelectedPhoto()
+        addAlbumContainer.classList.remove("hidden")
+      } else {
+        addAlbumContainer.classList.add("hidden")
+
+      }
+    })
+  })
+  const addSelectedPhoto = () => {
+    const selectedPhotos = document.querySelectorAll('.selectPhoto:checked');
+    const selectedPhotosId = [...selectedPhotos].map(photo => photo.value)
+    document.querySelector('#photosId').value = selectedPhotosId.join(',');
+
+  }
+</script>

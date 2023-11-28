@@ -5,13 +5,14 @@ import { join } from "path";
 import mongoose from "mongoose";
 import { CONFIG } from "./config/credentials";
 import authRouter from "./routes/login";
-import { IUser } from "./models/user";
 import homeRouter from "./routes/home";
-
+import albumRouter from "./routes/album";
+import photoRouter  from "./routes/photos";
+import { IUser } from "./models/user";
 
 declare module "express-session" {
   interface Session {
-    user: IUser
+    user: IUser;
   }
 }
 
@@ -33,11 +34,13 @@ app.use(
   })
 );
 
-
 app.use("/views", authRouter);
-app.use("/views", homeRouter); 
-
-
+app.use("/views", homeRouter);
+app.use("/views", albumRouter);
+app.use("/views", photoRouter);
+app.get('*', (req, res) => {
+  res.render('errors/notFound')
+})
 
 
 const options: mongoose.ConnectOptions = {
