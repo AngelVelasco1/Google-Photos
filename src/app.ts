@@ -10,6 +10,7 @@ import albumRouter from "./routes/album";
 import photoRouter  from "./routes/photos";
 import { IUser } from "./models/user";
 
+
 declare module "express-session" {
   interface Session {
     user: IUser;
@@ -38,10 +39,10 @@ app.use("/views", authRouter);
 app.use("/views", homeRouter);
 app.use("/views", albumRouter);
 app.use("/views", photoRouter);
+
 app.get('*', (req, res) => {
   res.render('errors/notFound')
 })
-
 
 const options: mongoose.ConnectOptions = {
   dbName: CONFIG.db_name as string,
@@ -54,6 +55,6 @@ const options: mongoose.ConnectOptions = {
   console.info("Connected to MongoDB");
 })();
 
-app.listen(CONFIG, () => {
+app.listen(CONFIG.port, () => {
   console.log(`Server is running ON http://${CONFIG.hostname}:${CONFIG.port}`);
 });

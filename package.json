@@ -4,7 +4,9 @@
   "description": "Typescript and Node",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --quiet src/app.ts"
+    "dev": "nodemon --quiet src/app.ts",
+    "scanTailwind": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
+
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +32,7 @@
     "dotenv": "16.3.1",
     "nodemon": "3.0.1",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.1"
   }
 }

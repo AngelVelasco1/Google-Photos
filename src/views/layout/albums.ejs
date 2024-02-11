@@ -1,3 +1,5 @@
+<% include("../styles/head") %>
+
  <section class="w-screen m-0 p-0 ">
   <div class="grid grid-cols-3   m-0 overflow-hidden my-12">
     <% albums.forEach(album=> { %>
@@ -12,7 +14,7 @@
                   <%= album.name %>
                 </span>
               </h4>
-              <a class="bg-zinc-700 py-2 px-4 text-white font-semibold  rounded-md" href="/views/albums/<%= album._id %>">Show All</a>
+              <a class="bg-zinc-700 py-2 px-4 text-white font-semibold  rounded-md" href="/views/albums/<%= album._id %>">View Photos</a>
             </div>
           </div>
         </div>

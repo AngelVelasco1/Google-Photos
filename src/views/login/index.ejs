@@ -1,47 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-
-
+  <link href="../../css/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body>
-  <h1 class="text-5xl text-center font-bold mt-8">Login</h1>
-  <form action="/views/auth" method="post" class="max-w-full flex flex-col justify-center  items-center mb-5">
-    <div class="border-b  border-gray-900/10 pb-10">
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-1">
 
-        <div class="sm:col-span-3">
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
-          <div class="mt-2">
-            <input type="text" name="username" id="username"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+  <body>
+    <h1 class="text-5xl text-center">Login</h1>
+    <form action="/views/auth" method="post" class="max-w-full flex flex-col justify-center  items-center mb-5">
+      <div class="border-b  border-gray-900/10 pb-10">
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-1">
+
+          <div class="sm:col-span-3">
+            <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+            <div class="mt-2">
+              <input type="text" name="username" id="username"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
           </div>
-        </div>
 
-        <div class="sm:col-span-4">
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-          <div class="mt-2">
-            <input id="password" name="password" type="password"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <div class="sm:col-span-4">
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            <div class="mt-2">
+              <input id="password" name="password" type="password"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-      <button type="submit"
-        class="rounded-md bg-indigo-600 px-5 py-2 text-md font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
-    </div>
-    <a class="mt-2 font-bold text-pink-400 hover:text-pink-600" href="/views/signup">Don't have an account?</a>
-  </form>
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button type="submit"
+          class="rounded-md bg-indigo-600 px-5 py-2 text-md font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
+      </div>
+      <a class="mt-2 font-bold text-pink-400 hover:text-pink-600" href="/views/signup">Don't have an account?</a>
+    </form>
 
-</body>
-
+  </body>
 </html>

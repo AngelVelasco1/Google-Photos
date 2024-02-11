@@ -5,36 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-
-
-  <link rel="stylesheet" href="../../app.css">
-
 </head>
 
 <body>
   <%- include('../layout/navbar.ejs') %>
-      <form action="/views/createAlbum" method="post">
-        <div class="space-y-12 max-w-screen-sm m-auto">
-          <div class="col-span-full">
-      
-            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-              <div class="flex flex-2 flex-col justify-center align-middle items-center ">
-                <input class="rounded-md" type="text" name="name" placeholder="Album Name">
-                <div class="mt-5">
-                  <label class="font-semibold"  for="">Private</label>
-                  <input  type="checkbox" name="isprivate" checked >
-                </div>
-                
-              </div>
+    <form action="/views/createAlbum" method="post">
+      <div class="space-y-3 max-w-screen-sm mx-auto flex flex-col items-center  bg-gradient-to-l from-gray-200 via-fuchsia-200 to-stone-100 rounded-lg py-8 shadow-lg shadow-gray-300">
+        <div class="w-full">
+                      <h2 class="text-3xl font-bold text-center text-slate-700">Create Your Album</h2>
+
+          <div class="mt-2 flex flex-col justify-center mx-auto rounded-lg w-8/12 py-10">
+            <input class="rounded-md w-full" type="text" name="name" placeholder="Album Name">
+            <div class="mt-2">
+              <label class="isprivate font-semibold text-lg" for="isprivate">
+                Private
+                <input id="isprivate" type="checkbox" name="isprivate" class="rounded-md p-[9px]">
+              </label>
             </div>
           </div>
-          <button
-            class="rounded-md bg-gray-600 px-5 py-2  w-full text-md font-bold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
-            type="submit">Create Album</button>
         </div>
-      </form>
+        <button
+          class="rounded-md bg-slate-800/85 px-5 py-2  w-5/12 text-lg font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+          type="submit">Create Album
+        </button>
+      </div>
+    </form>
     <%- include('../layout/albums.ejs') %>
 </body>
 
