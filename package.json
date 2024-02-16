@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --quiet src/app.ts",
-    "scanTailwind": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
+    "scanTailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
 
   },
   "author": "",

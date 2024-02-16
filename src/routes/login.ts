@@ -4,11 +4,11 @@ import User, { IUser } from "../models/user";
 const authRouter = Router();
 
 authRouter.get("/login", (req, res) => {
-  res.render("login/index");
+  res.render("login/index", { url: req.protocol + "://" + req.headers.host });
 });
 
 authRouter.get("/signup", (req, res) => {
-  res.render("login/signup");
+  res.render("login/signup", { url: req.protocol + "://" + req.headers.host });
 });
 
 authRouter.post("/auth", async (req, res, next) => {

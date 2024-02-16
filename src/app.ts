@@ -21,8 +21,8 @@ export const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(join(__dirname, "../public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(join(__dirname, 'public')))
 
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -41,7 +41,7 @@ app.use("/views", albumRouter);
 app.use("/views", photoRouter);
 
 app.get('*', (req, res) => {
-  res.render('errors/notFound')
+  res.render('errors/notFound', {url: req.protocol + "://" + req.headers.host})
 })
 
 const options: mongoose.ConnectOptions = {
